@@ -14,17 +14,26 @@ Hero Kidzz is a small, single-vendor e-commerce web application designed for sel
 - 🎨 **Responsive Design** - Mobile-friendly interface
 - ⭐ **Product Reviews** - Customer feedback system
 
-## Asset Structure
+## Colors
 
 ```
-assets/
-├── images/
-│   ├── products/
-│   ├── hero/
-│   └── banners/
-├── icons/
-├── logos/
-└── media/
+ /* Brand */
+  --color-primary: oklch(65% 0.23 35);
+  --color-secondary: oklch(58% 0.18 30);
+  --color-accent: oklch(72% 0.20 55);
+
+  /* Base */
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(97% 0.01 95);
+  --color-base-300: oklch(92% 0.015 95);
+
+  /* Neutral */
+  --color-neutral: oklch(35% 0.01 260);
+  --color-neutral-content: oklch(96% 0 0);
+
+  /* Feedback */
+  --color-success: oklch(70% 0.17 145);
+  --color-error: oklch(62% 0.24 28);
 ```
 
 ## Getting Started
