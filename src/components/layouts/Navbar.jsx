@@ -33,8 +33,8 @@ const Navbar = () => {
       <li><a>Item 3</a></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Log In </a>
+  <div className="navbar-end gap-5">
+    <a className="btn">SIGN UP </a>
     <Button></Button>
   </div>
 </div>
