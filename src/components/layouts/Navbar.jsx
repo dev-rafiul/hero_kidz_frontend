@@ -1,64 +1,72 @@
-import React from "react";
-import styled from "styled-components";
+
+"use client"
+import React, { useState } from "react";
 import LogIn from "./LogIn";
 import SignUpbtn from "./SignUpbtn";
+import Logo from "./Logo";
+import HamburgerUiNav from "./HamburgerNav";
+import Link from "next/link";
+import NavLinks from "../buttons/NavLinks";
+import {FiShoppingCart} from "react-icons/fi"
+
 
 const Navbar = () => {
+
+
+const [open, setOpen] = useState(false)
+
+  const nav = <>
+  <li><NavLinks href={"/"}>Home</NavLinks>  </li>
+  <li><NavLinks href={"/products"}>Products</NavLinks>  </li>
+  <li><NavLinks href={"/blog"}>blog</NavLinks>  </li>
+  <li><NavLinks href={"/contact"}>contact</NavLinks>  </li>
+  </>
+
+
   return (
-    <div className="navbar bg-base-100 ">
+    <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+          
+          <label tabIndex={0} className="btn btn-ghost lg:hidden mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-          </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a href="">Item 2</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+
+          </label>
+          
+
+
+          
+          <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow
+          ">
+            {nav}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+
+
+
+ 
+
+
+        <Logo />
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+          {nav}
         </ul>
       </div>
-      <div className="navbar-end gap-5">
-        {/* <a className="btn h-[50px] w-[100px]">SIGN UP </a> */}
-        <SignUpbtn></SignUpbtn>
-        <LogIn></LogIn>
+      <div className="navbar-end gap-3">
+
+        <Link href={"/cart"} className="btn btn-primary text-4xl h-[50px] w-[50px]"><FiShoppingCart></FiShoppingCart></Link>
+
+        <Link href={"/register"}>
+        <SignUpbtn />
+        </Link>
+        <Link href={"/login"}>
+        <LogIn />
+        </Link>
       </div>
     </div>
   );

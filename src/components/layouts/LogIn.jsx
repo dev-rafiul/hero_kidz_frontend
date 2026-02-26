@@ -1,10 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+"use client"
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
 
 const LogIn = () => {
+  const [shake, setShake] = useState(false);
+
+  const handleClick = () => {
+    setShake(true);
+    setTimeout(() => setShake(false), 500); // match animation duration
+  };
+
   return (
     <StyledWrapper>
-      <button className="button">
+      <button
+        className={`button ${shake ? "shake" : ""}`}
+        onClick={handleClick}
+      >
         <svg viewBox="0 0 512 512" className="svgIcon">
           <path d="M352 128l-22.6 22.6L393.4 214H160c-17.7 0-32 14.3-32 32s14.3 32 32 32h233.4l-64 63.4L352 384l128-128-128-128zM96 96h128V32H96C60.7 32 32 60.7 32 96v320c0 35.3 28.7 64 64 64h128v-64H96V96z" />
         </svg>
@@ -12,6 +23,15 @@ const LogIn = () => {
     </StyledWrapper>
   );
 };
+
+const shakeAnimation = keyframes`
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-5px); }
+  40% { transform: translateY(0px); }
+  60% { transform: translateY(0px); }
+  80% { transform: translateY(0px); }
+  100% { transform: translateY(0); }
+`;
 
 const StyledWrapper = styled.div`
   .button {
@@ -31,6 +51,10 @@ const StyledWrapper = styled.div`
     position: relative;
   }
 
+  .button.shake {
+    animation: ${shakeAnimation} 0.5s ease;
+  }
+
   .svgIcon {
     width: 20px;
     transition-duration: 0.3s;
@@ -43,14 +67,11 @@ const StyledWrapper = styled.div`
   .button:hover {
     width: 120px;
     border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: rgb(255, 69, 69);
-    align-items: center;
+    background-color: #fc4000;
   }
 
   .button:hover .svgIcon {
     width: 50px;
-    transition-duration: 0.3s;
     transform: translateY(120%);
   }
 
@@ -67,7 +88,6 @@ const StyledWrapper = styled.div`
     font-size: 18px;
     opacity: 1;
     transform: translateY(33px);
-    transition-duration: 0.3s;
   }
 `;
 
