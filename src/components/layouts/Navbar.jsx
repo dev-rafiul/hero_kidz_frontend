@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import LogIn from "./LogIn";
 import SignUpbtn from "./SignUpbtn";
 import Logo from "./Logo";
-import HamburgerUiNav from "./HamburgerNav";
 import Link from "next/link";
 import NavLinks from "../buttons/NavLinks";
 import {FiShoppingCart} from "react-icons/fi"
@@ -59,7 +58,7 @@ const [open, setOpen] = useState(false)
       </div>
       <div className="navbar-end gap-3">
 
-        <Link href={"/cart"} className="btn btn-primary text-4xl h-[50px] w-[50px]"><FiShoppingCart></FiShoppingCart></Link>
+        <Link href={"/cart"} className="btn btn-primary text-4xl h-[50px] w-[50px] border-none"><FiShoppingCart></FiShoppingCart></Link>
 
         <Link href={"/register"}>
         <SignUpbtn />
