@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-
+import localFont from 'next/font/local'
 
 
 const poppins = Poppins(
@@ -10,6 +10,14 @@ const poppins = Poppins(
     weight: ["100", "200", "400", "500", "600", "800"]
   }
 )
+
+
+export const fontBangla = localFont({
+  src: '../../src/fonts/mayaboti-normal.ttf'
+  // weight: ''
+})
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -25,7 +33,7 @@ export default function RootLayout({ children }) {
         <header className="py-2 md:w-11/12 mx-auto">
           <Navbar></Navbar>
         </header>
-        <main className="py-2 md:w-11/12 mx-auto">
+        <main className="py-2 md:w-11/12 mx-auto min-h-[calc(100vh-302px)] px-4">
         {children}
         </main>
         <footer>
