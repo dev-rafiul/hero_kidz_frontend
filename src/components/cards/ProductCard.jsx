@@ -12,7 +12,7 @@ export default function ProductCard({product}) {
 
         {/* Price Badge */}
         <div className="absolute top-4 right-4 bg-blue-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md">
-          $100
+          {price} Taka
         </div>
 
         {/* Top Section */}
@@ -35,11 +35,11 @@ export default function ProductCard({product}) {
         <div className="bg-[#2a2d35] rounded-t-3xl px-6 py-8">
 
           <h2 className="text-white text-xl font-bold tracking-wide">
-            PRODUCT NAME
+            {title}
           </h2>
 
           <p className="text-gray-400 text-sm mt-2">
-            Lorem ipsum dolor sit amet, ederelit consectetur adipiscing elit.
+           {reviews}
           </p>
 
           {/* Rating */}

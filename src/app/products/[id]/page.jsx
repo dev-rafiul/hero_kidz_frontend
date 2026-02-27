@@ -7,7 +7,7 @@ import { FaCartPlus, FaStar } from "react-icons/fa";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const product = await getSingleProduct(id); // DB / API fetch
+  const product = await getSingleProduct(id); 
 
   return {
     title: product.title,
@@ -100,8 +100,7 @@ const ProductDetails = async ({ params }) => {
           )}
         </div>
 
-        {/* Actions */}
-        {/* <CartButton product={product}></CartButton> */}
+      
       </div>
       <div className="col-span-full">
         {/* Description */}
