@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductCard({product}) {
 
-    const {title, image, price, ratings, reviews, sold} = product;
+    const {title, image, price, ratings, reviews, sold, _id} = product;
 
 
   return (
@@ -67,6 +68,15 @@ export default function ProductCard({product}) {
           <button className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition-all duration-300 text-white py-3 rounded-full font-semibold shadow-lg hover:shadow-blue-500/50">
             ADD TO CART
           </button>
+
+          <Link href={`/products/${_id}`} className="btn btn-primary btn-outline w-full rounded-4xl mt-5">View Details</Link>
+
+          {/* <Link
+          href={`/products/${_id}`}
+          className="btn btn-primary btn-outline mt-4 w-full"
+        >
+          View Details
+        </Link> */}
 
         </div>
       </div>
