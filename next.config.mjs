@@ -6,10 +6,12 @@ images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "s3.amazonaws.com",
-        port: "",
-      }
-    ]
+        hostname: "i.ibb.co.com",
+        // port: "",
+        // pathname: "/my-bucket/**",
+        // search: "",
+      },
+    ],
   },
 
 
