@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import Link from "next/link";
 import NavLinks from "../buttons/NavLinks";
 import {FiShoppingCart} from "react-icons/fi"
+import CartBtn from "./CartBtn";
 
 
 const Navbar = () => {
@@ -58,7 +59,15 @@ const [open, setOpen] = useState(false)
       </div>
       <div className="navbar-end gap-3">
 
-        <Link href={"/cart"} className="btn btn-primary text-4xl h-[50px] w-[50px] border-none"><FiShoppingCart></FiShoppingCart></Link>
+        <Link href={"/cart"} className="text-xl h-[50px] w-[50px] border-none">
+        {/* <FiShoppingCart></FiShoppingCart> */}
+
+
+<CartBtn></CartBtn>
+
+
+
+        </Link>
 
         <Link href={"/register"}>
         <SignUpbtn />
