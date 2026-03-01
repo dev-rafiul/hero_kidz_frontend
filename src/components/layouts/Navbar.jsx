@@ -342,8 +342,8 @@ export default function Navbar() {
               className="
                 flex flex-col justify-center items-center gap-[5px]
                 w-9 h-9 rounded-xl
-                bg-white/[0.06] border border-white/[0.08]
-                text-white/80 hover:bg-white/[0.1]
+                bg-black/[0.09] border border-black/[0.08]
+                text-primary/80 hover:bg-white/[0.1]
                 transition-all duration-200
               "
               aria-label="Toggle menu"
@@ -362,7 +362,7 @@ export default function Navbar() {
       <div
         className={`
           fixed top-[76px] inset-x-4 z-40
-          bg-[#0c0c10]/97 backdrop-blur-2xl
+          bg-[#e7eae5]/97 backdrop-blur-2xl
           border border-white/[0.07] rounded-2xl p-3
           shadow-[0_24px_80px_rgba(0,0,0,0.65)]
           transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]
@@ -381,7 +381,7 @@ export default function Navbar() {
               href={link.href}
               className="
                 px-4 py-3 rounded-xl text-[15px] font-medium
-                text-white/65 hover:text-white hover:bg-white/[0.07]
+                text-[#252324] hover:text-[#07000b] hover:bg-[#fdf5e6]/55
                 transition-all duration-200
               "
               style={{
@@ -399,9 +399,9 @@ export default function Navbar() {
           <Link
             href="/register"
             className="
-              flex-1 text-center py-2.5 rounded-xl text-[13px] font-medium
-              text-white/75 border border-white/[0.16]
-              hover:bg-white/[0.07] hover:text-white
+              flex-1 text-center py-2.5 rounded-xl text-[13px] font-semibold bg-primary
+              text-white border border-primary
+              hover:bg-white/15 hover:text-primary
               transition-all duration-200
             "
           >
@@ -411,13 +411,10 @@ export default function Navbar() {
           <Link
             href="/login"
             className="
-              flex-1 text-center py-2.5 rounded-xl text-[13px] font-semibold text-white
-              bg-gradient-to-br from-indigo-500 to-violet-600
-              shadow-[0_4px_14px_rgba(99,102,241,0.4)]
-              transition-all duration-200
+              flex-1 text-center py-2.5 rounded-xl btn btn-primary btn-outline
             "
           >
-            Let&apos;s Talk
+            LogIn &apos; Now
           </Link>
         </div>
       </div>
