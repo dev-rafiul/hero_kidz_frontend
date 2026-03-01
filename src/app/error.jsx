@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import React from 'react';
+
+"use client"
+import Link from "next/link";
 import {BiSolidErrorAlt} from "react-icons/bi"
 
-const Error404 = () => {
+const error = () => {
     return (
         <div className='flex min-h-screen flex-col justify-center items-center'>
             <div className='flex flex-col justify-center items-center mb-8'>
@@ -23,4 +24,4 @@ const Error404 = () => {
     );
 };
 
-export default Error404;
+export default error;
