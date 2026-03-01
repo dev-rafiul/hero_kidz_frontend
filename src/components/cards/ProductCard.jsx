@@ -8,10 +8,10 @@ export default function ProductCard({product}) {
 
   return (
     <div className="flex items-center justify-center p-6">
-      <div className="relative w-[340px] rounded-3xl bg-gradient-to-b from-[#22252d] to-[#191c22] shadow-2xl overflow-hidden">
+      <div className="relative w-[340px] rounded-3xl bg-gradient-to-b from-[#fefffc] to-[#fefffc] shadow-2xl overflow-hidden">
 
         {/* Price Badge */}
-        <div className="absolute top-4 right-4 bg-blue-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md">
+        <div className="absolute top-4 right-4 bg-blue-500 text-black text-sm font-semibold px-4 py-1 rounded-full shadow-md">
           {price} Taka
         </div>
 
@@ -19,22 +19,22 @@ export default function ProductCard({product}) {
         <div className="relative flex justify-center items-center pt-14 pb-10">
 
           {/* Glow Background */}
-          <div className="absolute w-56 h-56 bg-blue-500/20 blur-3xl rounded-full"></div>
+          <div className="absolute w-56 h-56 bg-[#ecefec] blur-3xl rounded-full"></div>
 
           {/* Product Image */}
           <Image
-            src={image} // put your watch image inside public folder
+            src={image} 
             alt={title}
-            width={300}
-            height={250}
-            className="relative w-48 drop-shadow-2xl"
+            width={260}
+            height={240}
+            className="relative rounded-xl  drop-shadow-2xl"
           />
         </div>
 
         {/* Bottom Content */}
-        <div className="bg-[#2a2d35] rounded-t-3xl px-6 py-8">
+        <div className="bg-[#fefffc] rounded-t-3xl px-6 py-8">
 
-          <h2 className="text-white text-xl font-bold tracking-wide">
+          <h2 className="text-black text-xl font-bold tracking-wide">
             {title}
           </h2>
 
@@ -44,7 +44,7 @@ export default function ProductCard({product}) {
 
           {/* Rating */}
           <div className="flex gap-1 mt-3 text-blue-400">
-            ★ ★ ★ ★ ☆
+           {ratings}
           </div>
 
           {/* Divider + Info */}
@@ -57,9 +57,9 @@ export default function ProductCard({product}) {
             </div>
 
             <div>
-              <h4 className="text-blue-400 font-semibold">YOUR TITLE</h4>
+              <h4 className="text-blue-400 font-semibold">Sold</h4>
               <p className="text-gray-400 text-xs mt-1">
-                Lorem ipsum dolor sit amet.
+               {sold}
               </p>
             </div>
           </div>

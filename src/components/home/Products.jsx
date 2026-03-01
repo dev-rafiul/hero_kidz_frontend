@@ -5,12 +5,15 @@ import { getProducts } from '@/actions/server/product';
 
 
 const Products = async () => {
-    const products = (await getProducts()) || [];
+    const products = await getProducts();
     return (
         <div>
             <h2 className='text-center text-4xl font-bold mb-10'>Our Products</h2>
 
-            <div className='grid grid-cols-3'>
+            <div className='grid grid-cols-1 
+            lg:grid-cols-4
+            md:grid-cols-3
+            sm:grid-cols-2'>
                 {products.map(product => <ProductCard key={product.title} product={product}></ProductCard>)}
                 {/* <ProductCard></ProductCard> */}
             </div>
