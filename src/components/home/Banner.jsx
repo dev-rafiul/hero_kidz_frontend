@@ -6,8 +6,8 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='flex justify-between items-center'>
-            <div className='flex-1 space-y-5 mt-18'>
+        <div className='flex justify-between items-center -mt-18 md:mt-15 mb-35'>
+            <div className='flex-1 space-y-5 mt-28'>
                 <h2 className={`${fontBangla.className} text-5xl font-semibold leading-20`}>“রান্না হোক সহজ, মুহূর্ত হোক বিশেষ।” <span className='text-primary'>টেকসই মান, নির্ভরতার প্রতিশ্রুতি</span></h2>
                 <p className=''>Buy Every Kitchen items upto 15% discount</p>
                 <button className='btn btn-primary btn-outline'> Explore Products</button>
