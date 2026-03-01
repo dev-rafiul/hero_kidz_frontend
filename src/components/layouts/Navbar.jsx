@@ -235,9 +235,7 @@ export default function Navbar() {
 
 
               <FiShoppingCart className="w-5 h-5" />
-              {/* <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-indigo-500 rounded-full text-[8px] font-bold flex items-center justify-center border-2 border-[#0e0e10]">
-                3
-              </span> */}
+              
             </Link>
 
             <button
