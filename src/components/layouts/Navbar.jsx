@@ -199,12 +199,12 @@ export default function Navbar() {
             >
               
             <SignUpbtn></SignUpbtn>
-              {/* Sign up */}
+             
             </Link>
 
 
 
-            {/* CTA — magnetic */}
+         
             <Link
               href="/login"
               ref={ctaRef}
