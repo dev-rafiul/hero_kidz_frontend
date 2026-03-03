@@ -320,7 +320,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Logo pulse keyframe */}
+      
       <style>{`
         @keyframes logoPulse {
           0%, 100% { box-shadow: 0 0 12px rgba(99,102,241,0.65); }
