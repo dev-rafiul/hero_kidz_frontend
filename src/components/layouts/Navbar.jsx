@@ -219,7 +219,7 @@ export default function Navbar() {
               "
               style={{ transition: "transform 0.3s cubic-bezier(0.23,1,0.32,1), box-shadow 0.3s ease" }}
             >
-              {/* Log&apos; In */}
+            
               <LogIn></LogIn>
             </Link>
           </div>
