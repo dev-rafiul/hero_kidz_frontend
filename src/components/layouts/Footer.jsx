@@ -174,7 +174,7 @@ export default function Footer() {
 
 <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black/10 to-transparent blur-2xl">
       </div>
-      {/* Huge Background Typography */}
+     
       <h1 className="absolute bottom-[-20px] right-[-2px] text-[90px] md:text-[140px] lg:text-[300px] font-bold text-black opacity-90  pointer-events-none select-none
       
       
