@@ -179,7 +179,7 @@ export default function Footer() {
       
       
       ">
-        HERO <span className="text-primary">KIDZ</span>
+        Super <span className="text-primary">Shop</span>
       </h1>
 
     </main>
