@@ -10,11 +10,6 @@ import SignUpbtn from "./SignUpbtn";
 import LogIn from "./LogIn";
 import CartBtn from "./CartBtn";
 import Logo from "./Logo";
-// import Logo from "./Logo";
-// import Link from "next/link";
-// import NavLinks from "../buttons/NavLinks";
-// import {FiShoppingCart} from "react-icons/fi"
-// import CartBtn from "./CartBtn";
 
 
 
