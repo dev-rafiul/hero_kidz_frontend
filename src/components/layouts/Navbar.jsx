@@ -141,12 +141,9 @@ export default function Navbar() {
           `}
           style={{ willChange: "background, box-shadow" }}
         >
-          {/* Logo */}
+          
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            {/* <span
-              className="w-2 h-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 shadow-[0_0_12px_rgba(99,102,241,0.7)]"
-              style={{ animation: "logoPulse 2.5s ease-in-out infinite" }}
-            /> */}
+           
 
 
 

@@ -8,7 +8,7 @@ const CartBtn = () => {
 
   const handleClick = () => {
     setShake(true);
-    setTimeout(() => setShake(false), 500); // match animation duration
+    setTimeout(() => setShake(false), 500);
   };
 
   return (
@@ -17,10 +17,7 @@ const CartBtn = () => {
         className={`button ${shake ? "shake" : ""}`}
         onClick={handleClick}
       >
-        {/* <svg viewBox="0 0 512 512" className="svgIcon"> */}
-          {/* <path d="M352 128l-22.6 22.6L393.4 214H160c-17.7 0-32 14.3-32 32s14.3 32 32 32h233.4l-64 63.4L352 384l128-128-128-128zM96 96h128V32H96C60.7 32 32 60.7 32 96v320c0 35.3 28.7 64 64 64h128v-64H96V96z" /> */}
-
-        {/* </svg> */}
+       
 
         <FiShoppingCart></FiShoppingCart>
 
