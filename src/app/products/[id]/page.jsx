@@ -1,6 +1,5 @@
+
 import { getSingleProduct } from "@/actions/server/product";
-
-
 import Image from "next/image";
 import React from "react";
 import { FaCartPlus, FaStar } from "react-icons/fa";
