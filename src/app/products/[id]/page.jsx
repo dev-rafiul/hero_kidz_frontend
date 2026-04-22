@@ -1,5 +1,6 @@
 
 import { getSingleProduct } from "@/actions/server/product";
+import CartButton from "@/components/buttons/CartButton";
 import Image from "next/image";
 import React from "react";
 import { FaCartPlus, FaStar } from "react-icons/fa";
@@ -98,6 +99,8 @@ const ProductDetails = async ({ params }) => {
             <span className="line-through text-gray-400 ml-3">৳{price}</span>
           )}
         </div>
+
+        <CartButton product={product}></CartButton>
 
       
       </div>
