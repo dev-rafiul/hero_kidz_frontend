@@ -10,6 +10,7 @@ import SignUpbtn from "./SignUpbtn";
 import LogIn from "./LogIn";
 import CartBtn from "./CartBtn";
 import Logo from "./Logo";
+import AuthButtons from "../buttons/AuthButtons";
 
 
 
@@ -180,7 +181,7 @@ export default function Navbar() {
             </Link>
 
             {/* Sign up */}
-            <Link
+            {/* <Link
               href="/register"
               className="
                 px-[18px] py-2 rounded-full text-[13px] font-medium
@@ -192,12 +193,12 @@ export default function Navbar() {
               
             <SignUpbtn></SignUpbtn>
              
-            </Link>
+            </Link> */}
 
 
 
          
-            <Link
+            {/* <Link
               href="/login"
               ref={ctaRef}
               onMouseMove={handleCtaMouseMove}
@@ -213,7 +214,11 @@ export default function Navbar() {
             >
             
               <LogIn></LogIn>
-            </Link>
+            </Link> */}
+
+            <AuthButtons></AuthButtons>
+
+
           </div>
 
           {/* Mobile — cart + hamburger */}

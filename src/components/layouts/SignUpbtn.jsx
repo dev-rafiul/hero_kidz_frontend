@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
-const Button = () => {
+const SignUpbtn = () => {
   const [shake, setShake] = useState(false);
 
   const handleClick = () => {
@@ -83,4 +83,4 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default Button;
+export default SignUpbtn;
