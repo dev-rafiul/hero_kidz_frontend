@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CartButton from "../buttons/CartButton";
 
 export default function ProductCard({product}) {
 
@@ -64,10 +65,8 @@ export default function ProductCard({product}) {
             </div>
           </div>
 
-          {/* Button */}
-          <button className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition-all duration-300 text-white py-3 rounded-full font-semibold shadow-lg hover:shadow-blue-500/50">
-            ADD TO CART
-          </button>
+
+          <CartButton></CartButton>
 
           <Link href={`/products/${_id}`} className="btn btn-primary btn-outline w-full rounded-4xl mt-5">View Details</Link>
 
