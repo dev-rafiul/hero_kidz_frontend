@@ -66,16 +66,11 @@ export default function ProductCard({product}) {
           </div>
 
 
-          <CartButton></CartButton>
+          <CartButton product={{...product, _id:_id.toString()}}></CartButton>
 
           <Link href={`/products/${_id}`} className="btn btn-primary btn-outline w-full rounded-4xl mt-5">View Details</Link>
 
-          {/* <Link
-          href={`/products/${_id}`}
-          className="btn btn-primary btn-outline mt-4 w-full"
-        >
-          View Details
-        </Link> */}
+        
 
         </div>
       </div>
