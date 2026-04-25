@@ -12,40 +12,7 @@ const AuthButtons = () => {
     const session = useSession()
 
     return (
-//         <div>
-//             {
-//                 session.status=="authenticated" ? (
-//                      <>
-//                      <button onClick={() => signOut()} className='btn btn-primary'> LogOut </button>
-//                      </> 
-//                     ) : ( 
-//                 <>
-
-
-// <Link
-//               href="/register"
-//               className="
-//                 px-[18px] py-2 rounded-full text-[13px] font-medium
-               
-//                 hover:bg-white/[0.07] hover:border-white/30 hover:text-white
-//                 transition-all duration-250
-//               "
-//             >
-              
-//             <SignUpbtn></SignUpbtn>
-             
-//             </Link> 
-
-
-//                 <Link href={"/login"} className=''>
-//                 <LogIn></LogIn>
-//                 </Link>
-//                 </>
-
-//                 )
-//             }
-//         </div>
-
+        
 
 
 

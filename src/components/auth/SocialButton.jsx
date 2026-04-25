@@ -2,15 +2,23 @@
 import { signIn } from "next-auth/react";
 import { useParams, useSearchParams } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 export const SocialButtons = () => {
   const params = useSearchParams();
 
+ 
   const handleSignIn = async () => {
     const result = await signIn("google", {
-      // redirect: "false",
-      callbackUrl: params.get("callbackUrl") || "/",
+      redirect: "false",
+      callbackUrl: params.get("callbackUrl") || "/"
     });
+    console.log(result)
+    if(result.ok){
+      Swal.fire("success", "Welcome", "success")
+    }else{
+      Swal.fire("Error", "Sorry", "error")
+    }
   };
 
   return (

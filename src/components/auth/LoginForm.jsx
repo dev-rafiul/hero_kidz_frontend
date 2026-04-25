@@ -21,7 +21,7 @@ const LoginForm = () => {
     const result = await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      // redirect: false,
       callbackUrl: params.get("callbackUrl") || "/",
     });
 

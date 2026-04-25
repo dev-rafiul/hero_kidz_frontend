@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 import { FiShoppingCart } from "react-icons/fi";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { IoChevronDownOutline } from "react-icons/io5";
-import SignUpbtn from "./SignUpbtn";
-import LogIn from "./LogIn";
 import CartBtn from "./CartBtn";
 import Logo from "./Logo";
 import AuthButtons from "../buttons/AuthButtons";
