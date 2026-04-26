@@ -3,6 +3,8 @@
 import { authOptions } from "@/lib/authOptions";
 import { collections, dbConnect } from "@/lib/dbConnect"
 import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
+import { cache } from "react";
 
  
 
@@ -70,17 +72,19 @@ export const handleCart = async ({product, inc = true}) => {
 
 
 
-export const getCart = async () => {
-    const user = await getServerSession(authOptions) || {};
-    if( !user?.user?.email ) return [];
-
-    const query = {email: user?.user?.email}
-    const result = await cartCollection.find(query).toArray()
-    return result.map((item) => ({
-        ...item,
-        _id: item?._id?.toString()
-    }));
-}
+export const getCart = cache(
+    async () => {
+        const user = await getServerSession(authOptions) || {};
+        if( !user?.user?.email ) return [];
+    
+        const query = {email: user?.user?.email}
+        const result = await cartCollection.find(query).toArray()
+        return result.map((item) => ({
+            ...item,
+            _id: item?._id?.toString()
+        }));
+    }
+)
 
 
 export const deleteItemFromCart = async (id) => {
@@ -93,5 +97,12 @@ export const deleteItemFromCart = async (id) => {
     };
 
     const result = await cartCollection.deleteOne(query);
+
+    if(result.deletedCount){
+        revalidatePath("/cart");
+    }
+    
+
+
     return { success: Boolean(result.deletedCount) };
 }
