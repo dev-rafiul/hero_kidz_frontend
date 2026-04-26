@@ -19,19 +19,24 @@ export const handleCart = async ({product, inc = true}) => {
 
 
     const query = {
-        email: user?.email,
+        email: user?.user?.email,
         productId: product?._id
     }
 
     const isAdded = await cartCollection.findOne(query);
 
     if(isAdded){
+        // Keep quantity positive. If user decrements last item, remove it from cart.
+        if (!inc && isAdded.quantity <= 1) {
+            const result = await cartCollection.deleteOne(query);
+            return {success: Boolean(result.deletedCount)}
+        }
+
         const updatedData = {
             $inc: {
                 quantity: inc ? 1 : -1
             }
         }
-
 
         const result = await cartCollection.updateOne(query, updatedData);
         return {success: Boolean(result.modifiedCount)}
@@ -67,9 +72,26 @@ export const handleCart = async ({product, inc = true}) => {
 
 export const getCart = async () => {
     const user = await getServerSession(authOptions) || {};
-    if( !user?.email ) return [];
+    if( !user?.user?.email ) return [];
 
-    const query = {email: user?.email}
+    const query = {email: user?.user?.email}
     const result = await cartCollection.find(query).toArray()
-    return result
+    return result.map((item) => ({
+        ...item,
+        _id: item?._id?.toString()
+    }));
+}
+
+
+export const deleteItemFromCart = async (id) => {
+    const user = await getServerSession(authOptions) || {};
+    if( !user ) return { success: false };
+
+    const query = {
+        email: user?.user?.email,
+        productId: id
+    };
+
+    const result = await cartCollection.deleteOne(query);
+    return { success: Boolean(result.deletedCount) };
 }
