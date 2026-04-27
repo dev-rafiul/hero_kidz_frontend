@@ -69,7 +69,7 @@ export const handleCart = async ({product, inc = true}) => {
 
 
 
-    return {success: true}
+    // return {success: true}
 
 }
 
