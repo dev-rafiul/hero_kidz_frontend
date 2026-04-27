@@ -15,11 +15,11 @@ const CartPage = async() => {
             </p>
         </div>
 
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           {cartItems.map((item) => (
             <CartItem key={item?._id || item?.productId} item={item} />
           ))}
-        </div>
+        </div> */}
     </div>
   )
 }
