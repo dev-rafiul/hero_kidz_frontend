@@ -1,5 +1,4 @@
 import { getCart } from '@/actions/server/cart'
-import CartItem from '@/components/cards/CartItem';
 import Cart from '@/components/home/Cart';
 import React from 'react'
 
