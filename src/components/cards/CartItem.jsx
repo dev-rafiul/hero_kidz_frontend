@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 const CartItem = ({ item }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const unitPrice = Number(item?.price) || 0;
+  const lineTotal = unitPrice * (item?.quantity || 0);
 
   const onIncrease = async () => {
     const confirm = await Swal.fire({
@@ -89,7 +91,8 @@ const CartItem = ({ item }) => {
 
       <div className="flex-1">
         <h3 className="text-lg font-semibold">{item?.title}</h3>
-        <p className="text-primary font-bold">${item?.price}</p>
+        <p className="text-sm text-base-content/70">Unit: ${unitPrice.toFixed(2)}</p>
+        <p className="text-primary font-bold">Subtotal: ${lineTotal.toFixed(2)}</p>
       </div>
 
       <div className="flex items-center gap-2">

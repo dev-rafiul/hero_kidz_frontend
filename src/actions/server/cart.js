@@ -31,6 +31,7 @@ export const handleCart = async ({product, inc = true}) => {
         // Keep quantity positive. If user decrements last item, remove it from cart.
         if (!inc && isAdded.quantity <= 1) {
             const result = await cartCollection.deleteOne(query);
+            revalidatePath("/cart");
             return {success: Boolean(result.deletedCount)}
         }
 
@@ -41,6 +42,7 @@ export const handleCart = async ({product, inc = true}) => {
         }
 
         const result = await cartCollection.updateOne(query, updatedData);
+        revalidatePath("/cart");
         return {success: Boolean(result.modifiedCount)}
 
 
@@ -58,6 +60,7 @@ export const handleCart = async ({product, inc = true}) => {
 
 
         const result = await cartCollection.insertOne(newData);
+        revalidatePath("/cart");
         return {success: result.acknowledged}
 
         
@@ -97,10 +100,7 @@ export const deleteItemFromCart = async (id) => {
     };
 
     const result = await cartCollection.deleteOne(query);
-
-    if(result.deletedCount){
-        revalidatePath("/cart");
-    }
+    revalidatePath("/cart");
     
 
 
