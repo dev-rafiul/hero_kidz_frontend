@@ -62,7 +62,7 @@ export const handleCart = async ({product, inc = true}) => {
         const result = await cartCollection.insertOne(newData);
         revalidatePath("/cart");
         return {success: result.acknowledged}
-
+        
         
     }
 

@@ -1,6 +1,7 @@
 "use client";
 import React, { useMemo } from "react";
 import CartItem from "../cards/CartItem";
+import Link from "next/link";
 
 const Cart = ({ cartItem = [] }) => {
   const items = cartItem;
@@ -69,9 +70,10 @@ const Cart = ({ cartItem = [] }) => {
               <span className="text-primary">${total.toFixed(2)}</span>
             </div>
 
-            <button className="btn btn-primary w-full" disabled={items.length === 0}>
+            <Link href={'/checkout'}
+             className="btn btn-primary w-full" disabled={items.length === 0}>
               Proceed to Checkout
-            </button>
+            </Link>
           </div>
         </div>
       </div>

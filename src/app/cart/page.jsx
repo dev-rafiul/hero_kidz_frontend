@@ -15,19 +15,13 @@ const CartPage = async() => {
 
 
 
-            {/* <p className="py-3">
-                <span className='text-primary font-semibold'>{cartItems.length}</span> items Found in the Cart
-            </p> */}
+         
         </div>
 
 
         <Cart cartItem={formattedItems}></Cart>
 
-        {/* <div className="space-y-4">
-          {cartItems.map((item) => (
-            <CartItem key={item?._id || item?.productId} item={item} />
-          ))}
-        </div> */}
+     
     </div>
   )
 }
