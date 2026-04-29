@@ -29,55 +29,104 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
+  // callbacks: {
+  //   async signIn({ user, account, profile, email, credentials }) {
+  //     console.log({ user, account, profile, email, credentials });
+
+  //     const isExist = await dbConnect(collections.USERS).findOne({
+  //       email: user.email,
+  //       // provider: account?.provider,
+  //     });
+  //     if (isExist) {
+  //       return true;
+  //     }
+
+  //     const newUser = {
+  //       provider: account?.provider,
+  //       email: user.email,
+  //       name: user.name,
+  //       image: user.image,
+  //       role: "user",
+  //     };
+  //     const result = await dbConnect(collections.USERS).insertOne(newUser);
+
+  //     return result.acknowledged;
+  //     // return true
+  //   },
+  //   // async redirect({ url, baseUrl }) {
+  //   //   return baseUrl;
+  //   // },
+  //   async session({ session, token, user }) {
+  //     if (token) {
+  //       session.role = token?.role;
+  //       session.email = token?.email;
+  //     }
+  //     return session;
+  //   },
+  //   async jwt({ token, user, account, profile, isNewUser }) {
+  //     console.log("account data in token", account);
+  //     if (user) {
+  //       if (account.provider == "google") {
+  //         const dbUser = await dbConnect(collections.USERS).findOne({
+  //           email: user.email,
+  //         });
+  //         token.role = dbUser?.role;
+  //         token.email = dbUser?.email;
+  //       } else {
+  //         token.role = user?.role;
+  //         token.email = user?.email;
+  //       }
+  //     }
+  //     return token;
+  //   },
+  // },
+
+
+
+
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      console.log({ user, account, profile, email, credentials });
+  async signIn({ user, account }) {
+    const existingUser = await dbConnect(collections.USERS).findOne({
+      email: user.email,
+    });
 
-      const isExist = await dbConnect(collections.USERS).findOne({
-        email: user.email,
-        // provider: account?.provider,
-      });
-      if (isExist) {
-        return true;
-      }
+    if (existingUser) return true;
 
-      const newUser = {
-        provider: account?.provider,
-        email: user.email,
-        name: user.name,
-        image: user.image,
-        role: "user",
-      };
-      const result = await dbConnect(collections.USERS).insertOne(newUser);
+    const newUser = {
+      provider: account?.provider,
+      email: user.email,
+      name: user.name,
+      image: user.image,
+      role: "user",
+    };
 
-      return result.acknowledged;
-      // return true
-    },
-    // async redirect({ url, baseUrl }) {
-    //   return baseUrl;
-    // },
-    async session({ session, token, user }) {
-      if (token) {
-        session.role = token?.role;
-        session.email = token?.email;
-      }
-      return session;
-    },
-    async jwt({ token, user, account, profile, isNewUser }) {
-      console.log("account data in token", account);
-      if (user) {
-        if (account.provider == "google") {
-          const dbUser = await dbConnect(collections.USERS).findOne({
-            email: user.email,
-          });
-          token.role = dbUser?.role;
-          token.email = dbUser?.email;
-        } else {
-          token.role = user?.role;
-          token.email = user?.email;
-        }
-      }
-      return token;
-    },
+    const result = await dbConnect(collections.USERS).insertOne(newUser);
+    return result.acknowledged;
   },
+
+  async jwt({ token, user, account }) {
+    if (user) {
+      if (account?.provider === "google") {
+        const dbUser = await dbConnect(collections.USERS).findOne({
+          email: user.email,
+        });
+
+        token.role = dbUser?.role;
+        token.email = dbUser?.email;
+      } else {
+        token.role = user.role;
+        token.email = user.email;
+      }
+    }
+    return token;
+  },
+
+  async session({ session, token }) {
+    if (token) {
+      session.user.role = token.role;
+      session.user.email = token.email;
+    }
+    return session;
+  },
+}
 };

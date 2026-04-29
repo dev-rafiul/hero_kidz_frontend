@@ -80,7 +80,7 @@ export const getCart = cache(
         const user = await getServerSession(authOptions) || {};
         if( !user?.user?.email ) return [];
     
-        const query = {email: user?.user?.email}
+        const query = {email: user?.email}
         const result = await cartCollection.find(query).toArray()
         return result.map((item) => ({
             ...item,
@@ -105,4 +105,15 @@ export const deleteItemFromCart = async (id) => {
 
 
     return { success: Boolean(result.deletedCount) };
+}
+
+ 
+export const clearCart = async() => {
+    const {user} = (await getServerSession(authOptions)) || {};
+    if(!user) return {success: false}
+
+
+  const query = {email: user?.user?.email}
+  const result = await cartCollection.deleteMany(query)
+        return result
 }
